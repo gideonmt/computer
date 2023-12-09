@@ -1,2 +1,2 @@
 # computer
- version of my website
+cool version of my website
