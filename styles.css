@@ -1,7 +1,11 @@
 :root {
-    --color-primary: 331.452, 76%, 68%;
+    --color-primary: 337, 76%, 68%;
     --corrupted-color: 0, 100%, 50%;
     --background-color: 240, 24%, 16%;
+}
+
+* {
+    border-radius: none;
 }
 
 body {
@@ -90,7 +94,7 @@ h3 {
     }
 
     50% {
-        border-color: hsla(var(--color-primary), 0.2);
+        border-color: hsla(var(--color-primary), 0);
     }
 
     100% {
@@ -116,6 +120,7 @@ button {
     background: hsla(var(--color-primary), 1);
     color: white;
     font-family: monospace;
+    box-shadow: 0 0 10px hsla(var(--color-primary), .3), 0 0 15px hsla(var(--color-primary), .2), 0 0 20px hsla(var(--color-primary), .1), 0 0 25px hsla(var(--color-primary), 0.05);
 }
 
 button:hover {
@@ -183,6 +188,7 @@ section#incorrect button {
     background-color: hsla(var(--corrupted-color), 1);
     border-color: hsla(var(--corrupted-color), 1);
     text-shadow: 0 0 10px hsla(var(--corrupted-color), .4), 0 0 15px hsla(var(--corrupted-color), .3), 0 0 20px hsla(var(--corrupted-color), .2), 0 0 25px hsla(var(--corrupted-color), .1);
+    box-shadow: 0 0 10px hsla(var(--corrupted-primary), .3), 0 0 15px hsla(var(--corrupted-primary), .2), 0 0 20px hsla(var(--corrupted-primary), .1), 0 0 25px hsla(var(--corrupted-primary), 0.05);
 }
 
 section#puzzle textarea {
@@ -190,4 +196,5 @@ section#puzzle textarea {
     background-color: hsla(var(--corrupted-color), 1);
     border-color: hsla(var(--corrupted-color), 1);
     resize: none;
+    box-shadow: 0 0 10px hsla(var(--corrupted-primary), .3), 0 0 15px hsla(var(--corrupted-primary), .2), 0 0 20px hsla(var(--corrupted-primary), .1), 0 0 25px hsla(var(--corrupted-primary), 0.05);
 }
