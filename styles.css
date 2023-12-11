@@ -2,16 +2,20 @@
     --color-primary: 337, 76%, 68%;
     --corrupted-color: 0, 100%, 50%;
     --background-color: 240, 24%, 16%;
+    --background: hsla(var(--background-color), 1);
 }
 
-p,li, blockquote, footer {
+p,
+li,
+blockquote,
+footer {
     border-radius: none;
     font-size: clamp(0.5rem, calc(6vw - 2rem), 0.75rem);
     margin: 0 0;
 }
 
 body {
-    background-color: hsla(var(--background-color), 1);
+    background: var(--background);
     display: flex;
     flex-direction: column;
     max-width: min(90%, 600px);
@@ -33,6 +37,7 @@ body::after {
     width: 100vw;
     height: 100vh;
     pointer-events: none;
+    z-index: 9999;
     background: repeating-linear-gradient(hsla(0, 0%, 0%, 0.15), hsla(0, 0%, 0%, 0.15) 1px, transparent 0, transparent 2px);
 }
 
@@ -88,6 +93,7 @@ h3 {
     height: 100%;
     pointer-events: none;
     box-shadow: 0 0 clamp(50px, 25vw, 400px) hsla(0, 0%, 0%, 0.9) inset;
+    z-index: 999;
 }
 
 @keyframes blink-caret {
@@ -131,8 +137,9 @@ button {
     margin: clamp(0.2rem, 2vh, 1.5rem) 0;
 }
 
-button:hover {
+button:hover, button:focus {
     border: 4px inset hsla(var(--color-primary), 1);
+    outline: none;
 }
 
 input[type="text"] {
@@ -150,7 +157,7 @@ input[type="text"]:focus {
 textarea {
     border: 4px outset hsla(var(--color-primary), 1);
     background: hsla(var(--color-primary), 1);
-    font-size: clamp(0.5rem, calc(6vw - 2rem), 1rem);
+    font-size: clamp(0.5rem, calc(6vw - 2rem), 0.75rem);
     color: white;
     font-family: monospace;
 }
@@ -197,7 +204,7 @@ section#incorrect button {
     background-color: hsla(var(--corrupted-color), 1);
     border-color: hsla(var(--corrupted-color), 1);
     text-shadow: 0 0 10px hsla(var(--corrupted-color), .4), 0 0 15px hsla(var(--corrupted-color), .3), 0 0 20px hsla(var(--corrupted-color), .2), 0 0 25px hsla(var(--corrupted-color), .1);
-    box-shadow: 0 0 10px hsla(var(--corrupted-primary), .3), 0 0 15px hsla(var(--corrupted-primary), .2), 0 0 20px hsla(var(--corrupted-primary), .1), 0 0 25px hsla(var(--corrupted-primary), 0.05);
+    box-shadow: 0 0 10px hsla(var(--corrupted-color), .3), 0 0 15px hsla(var(--corrupted-color), .2), 0 0 20px hsla(var(--corrupted-color), .1), 0 0 25px hsla(var(--corrupted-color), 0.05);
 }
 
 section#puzzle textarea {
@@ -205,5 +212,47 @@ section#puzzle textarea {
     background-color: hsla(var(--corrupted-color), 1);
     border-color: hsla(var(--corrupted-color), 1);
     resize: none;
-    box-shadow: 0 0 10px hsla(var(--corrupted-primary), .3), 0 0 15px hsla(var(--corrupted-primary), .2), 0 0 20px hsla(var(--corrupted-primary), .1), 0 0 25px hsla(var(--corrupted-primary), 0.05);
+    box-shadow: 0 0 10px hsla(var(--corrupted-color), .3), 0 0 15px hsla(var(--corrupted-color), .2), 0 0 20px hsla(var(--corrupted-color), .1), 0 0 25px hsla(var(--corrupted-color), 0.05);
+}
+
+/* terminal */
+.terminal {
+    position: absolute;
+    top: 20%;
+    left: 5%;
+    background: #111;
+    color: #00FF00;
+    width: 30%;
+    max-width: 400px;
+    border: 4px outset #00FF00;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+    font-family: monospace;
+    font-size: 14px;
+    padding: 10px;
+}
+
+#terminal-body {
+    min-height: 150px;
+    padding: 10px;
+}
+
+.terminal input, .terminal input:focus {
+    width: 100%;
+    background: transparent;
+    color: #00FF00;
+    border: none;
+    outline: none;
+    font-family: monospace;
+    flex: 1;
+    padding: 5px;
+}
+
+#command-input-container {
+    display: flex;
+    align-items: center;
+}
+
+#command-prompt {
+    color: #00ff00;
+    margin-right: 5px;
 }
